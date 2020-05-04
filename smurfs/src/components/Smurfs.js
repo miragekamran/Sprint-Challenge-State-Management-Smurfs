@@ -16,6 +16,7 @@ export default function Smurfs() {
       ...newSmurf,
       [event.target.name]: event.target.value,
     });
+    console.log(newSmurf)
   };
 
   const handleSubmit = (event) => {
@@ -68,6 +69,8 @@ export default function Smurfs() {
         <br />
         <button type="submit">Add Smurfs</button>
       </form>
+
+
       {value.smurfs
         ? value.smurfs.map((smurf) => (
             <div key={smurf.id}>
@@ -76,11 +79,9 @@ export default function Smurfs() {
                 <br />
                 Age: {smurf.age}
                 <br />
-                Hieght: {smurf.height}
+                Height: {smurf.height}
               </p>
-              <button onClick={(event) => deleteSmurf(event.smurf.id)}>
-                Delete Smurf
-              </button>
+              <button onClick={(e) => deleteSmurf(e, smurf.id)}>Delete</button>
             </div>
           ))
         : "Importing Smurfs"}
